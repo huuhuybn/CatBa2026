@@ -212,13 +212,15 @@ export default class PlazaScene extends Phaser.Scene {
     this.joystickActive = false;
     this.joystickVector = new Phaser.Math.Vector2(0, 0);
 
-    // Vẽ vòng tròn nền mờ ở góc dưới bên trái. Sử dụng setScrollFactor(0) để giữ cố định trên màn hình
-    this.joystickBase = this.add.circle(150, 850, 100, 0x888888, 0.5)
+    const gh = this.scale.height;
+
+    // Vẽ vòng tròn nền mờ ở góc dưới bên trái (cách lề trái 150px, cách lề dưới 150px)
+    this.joystickBase = this.add.circle(150, gh - 150, 100, 0x888888, 0.5)
       .setDepth(100)
       .setScrollFactor(0);
       
     // Vẽ nút gạt bên trong
-    this.joystickThumb = this.add.circle(150, 850, 50, 0xcccccc, 0.8)
+    this.joystickThumb = this.add.circle(150, gh - 150, 50, 0xcccccc, 0.8)
       .setDepth(101)
       .setScrollFactor(0);
 

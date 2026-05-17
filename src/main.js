@@ -1,16 +1,19 @@
 import Phaser from 'phaser';
 import PlazaScene from './scenes/PlazaScene.js';
 
+// Kiểm tra hướng màn hình lúc vừa vào game
+const isPortrait = window.innerHeight > window.innerWidth;
+const gameWidth = isPortrait ? 1024 : 1536;
+const gameHeight = isPortrait ? 1536 : 1024;
+
 const config = {
   type: Phaser.AUTO,
   parent: 'game-container',
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 1536, // Kích thước bằng đúng với map (96 * 16)
-    height: 1024, // Kích thước bằng đúng với map (64 * 16)
-    // Đề xuất xoay ngang nếu chơi trên điện thoại
-    orientation: Phaser.Scale.LANDSCAPE
+    width: gameWidth,
+    height: gameHeight
   },
   pixelArt: true,
   physics: {
