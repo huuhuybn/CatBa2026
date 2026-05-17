@@ -253,20 +253,20 @@ export default class PlazaScene extends Phaser.Scene {
 
     const gh = this.scale.height;
 
-    // Vẽ vòng tròn nền mờ ở góc dưới bên trái (cách lề trái 150px, cách lề dưới 150px)
-    this.joystickBase = this.add.circle(150, gh - 150, 100, 0x888888, 0.5)
+    // Vẽ vòng tròn nền mờ ở góc dưới bên trái (cách lề trái 225px, cách lề dưới 225px)
+    this.joystickBase = this.add.circle(225, gh - 225, 150, 0x888888, 0.5)
       .setDepth(100)
       .setScrollFactor(0);
       
     // Vẽ nút gạt bên trong
-    this.joystickThumb = this.add.circle(150, gh - 150, 50, 0xcccccc, 0.8)
+    this.joystickThumb = this.add.circle(225, gh - 225, 75, 0xcccccc, 0.8)
       .setDepth(101)
       .setScrollFactor(0);
 
     this.input.on('pointerdown', (pointer) => {
       // Vì setScrollFactor(0), tọa độ joystickBase.x,y là tọa độ trên camera viewport
       // So sánh với pointer.camera.x hoặc pointer.x 
-      if (Phaser.Math.Distance.Between(pointer.x, pointer.y, this.joystickBase.x, this.joystickBase.y) < 150) {
+      if (Phaser.Math.Distance.Between(pointer.x, pointer.y, this.joystickBase.x, this.joystickBase.y) < 225) {
         this.joystickActive = true;
         this.updateJoystick(pointer);
       }
@@ -286,7 +286,7 @@ export default class PlazaScene extends Phaser.Scene {
   }
 
   updateJoystick(pointer) {
-    const maxDist = 100;
+    const maxDist = 150;
     let angle = Phaser.Math.Angle.Between(this.joystickBase.x, this.joystickBase.y, pointer.x, pointer.y);
     let dist = Phaser.Math.Distance.Between(this.joystickBase.x, this.joystickBase.y, pointer.x, pointer.y);
 
