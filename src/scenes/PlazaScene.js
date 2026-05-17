@@ -9,12 +9,12 @@ export default class PlazaScene extends Phaser.Scene {
   }
 
   preload() {
-    // Load assets (Ensure you have moved them to public/assets and gatePoly.tmj is exported)
-    this.load.image('bg', '/assets/bg.png');
+    // Load assets (Đổi thành đường dẫn tương đối ./ để tránh lỗi 404 khi deploy)
+    this.load.image('bg', './assets/bg.png');
     // Load the JSON map (exported as .tmj)
-    this.load.tilemapTiledJSON('map', '/assets/gatePoly.tmj');
+    this.load.tilemapTiledJSON('map', './assets/gatePoly.tmj');
     // Load Frog spritesheet (32x32 based on dimensions)
-    this.load.spritesheet('frog', '/assets/Frog.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('frog', './assets/Frog.png', { frameWidth: 32, frameHeight: 32 });
   }
 
   create() {
