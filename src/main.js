@@ -46,15 +46,6 @@ document.getElementById('start-btn').addEventListener('click', async () => {
     } catch (e) {
       // Bỏ qua lỗi âm thầm
     }
-    
-    // Cố gắng xoay ngang màn hình (Chỉ hoạt động trên di động và sau khi đã bật toàn màn hình)
-    try {
-      if (screen.orientation && screen.orientation.lock) {
-        await screen.orientation.lock('landscape');
-      }
-    } catch (e) {
-      // Bỏ qua lỗi âm thầm (đặc biệt trên PC sẽ văng lỗi NotSupportedError)
-    }
   }
   
   // Ẩn lớp phủ và khởi tạo game
