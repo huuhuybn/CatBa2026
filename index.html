@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Avatar MMO - Plaza</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <script type="module" crossorigin src="./assets/index-B_x2N6-k.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B8UuHN_q.css">
+    <script type="module" crossorigin src="./assets/index-DaUspt9v.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D9lFRF04.css">
   </head>
   <body>
+    <!-- Màn hình chờ tải JS (hiển thị ngay lập tức) -->
+    <div id="loading-screen">
+      <div class="spinner"></div>
+      <p>Đang tải dữ liệu Đảo Cát Bà...</p>
+    </div>
+
+    <!-- Lớp phủ yêu cầu tương tác để xoay màn hình (ẩn mặc định, JS sẽ hiện lên) -->
+    <div id="start-overlay" style="display: none;">
+      <button id="start-btn">VÀO GAME 🎮</button>
+      <p id="start-hint">Nhấn vào đây để tự động xoay ngang và toàn màn hình</p>
+    </div>
+    
     <div id="game-container"></div>
   </body>
 </html>
