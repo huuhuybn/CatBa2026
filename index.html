@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <!-- Màn hình chờ tải JS (hiển thị ngay lập tức) -->
+    <div id="loading-screen">
+      <div class="spinner"></div>
+      <p>Đang tải dữ liệu Đảo Cát Bà...</p>
+    </div>
+
+    <!-- Lớp phủ yêu cầu tương tác để xoay màn hình (ẩn mặc định, JS sẽ hiện lên) -->
+    <div id="start-overlay" style="display: none;">
+      <button id="start-btn">VÀO GAME 🎮</button>
+      <p id="start-hint">Nhấn vào đây để tự động xoay ngang và toàn màn hình</p>
+    </div>
+    
     <div id="game-container"></div>
     <script type="module" src="./src/main.js"></script>
   </body>
