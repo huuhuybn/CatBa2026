@@ -31,22 +31,27 @@ const startOverlay = document.getElementById('start-overlay');
 startOverlay.style.display = 'flex';
 
 document.getElementById('start-btn').addEventListener('click', async () => {
-  // Cố gắng bật toàn màn hình
-  try {
-    if (document.documentElement.requestFullscreen) {
-      await document.documentElement.requestFullscreen();
+  // Kiểm tra xem có phải thiết bị di động không
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // Cố gắng bật toàn màn hình trên di động
+    try {
+      if (document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+      }
+    } catch (e) {
+      // Bỏ qua lỗi âm thầm
     }
-  } catch (e) {
-    console.log("Fullscreen API error:", e);
-  }
-  
-  // Cố gắng xoay ngang màn hình (Chỉ hoạt động trên di động và sau khi đã bật toàn màn hình)
-  try {
-    if (screen.orientation && screen.orientation.lock) {
-      await screen.orientation.lock('landscape');
+    
+    // Cố gắng xoay ngang màn hình (Chỉ hoạt động trên di động và sau khi đã bật toàn màn hình)
+    try {
+      if (screen.orientation && screen.orientation.lock) {
+        await screen.orientation.lock('landscape');
+      }
+    } catch (e) {
+      // Bỏ qua lỗi âm thầm (đặc biệt trên PC sẽ văng lỗi NotSupportedError)
     }
-  } catch (e) {
-    console.log("Orientation Lock error:", e);
   }
   
   // Ẩn lớp phủ và khởi tạo game
